@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="guide-etherchannel.html" rel="prev"/>
+<link href="guide-routinginlan.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>EtherChannel with VLAN Trunking - CCNA</title>
+<link href="../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#vlan-trunk-over-an-etherchannel">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="CCNA" class="md-header__button md-logo" data-md-component="logo" href=".." title="CCNA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            CCNA
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              EtherChannel with VLAN Trunking
+            
+          </span>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../quickref.html">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../labs/day06lab.html">
+        Labs
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="guide-qol.html">
+        Guides
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="CCNA" class="md-nav__button md-logo" data-md-component="logo" href=".." title="CCNA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    CCNA
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_1" tabindex="0">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quickref.html">
+        Quick Reference
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../commands.html">
+        Commands
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
+          Labs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Labs" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Labs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day06lab.html">
+        Day 06 Lab - Ethernet LAN Switching
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day08lab.html">
+        Day 08 Lab - IPv4 Addresses
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day09lab.html">
+        Day 09 Lab - Interface Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day11lab.html">
+        Day 11 Lab - Configuring Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day16lab.html">
+        Day 16 Lab - VLANS (Part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day17lab.html">
+        Day 17 Lab - VLANS (Part 2) - Routing in the LAN - ROAS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day18lab.html">
+        Day 18 Lab - VLANS (Part 3) - Routing in the LAN - Multilayer Switching
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day19lab.html">
+        Day 19 Lab - DTP and VTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day20lab.html">
+        Day 20 Lab - Analyzing STP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day21lab.html">
+        Day 21 Lab - Configuring Spanning Tree
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day22lab.html">
+        Day 22 Lab - Rapid STP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day23lab.html">
+        Day 23 Lab - EtherChannel
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day24lab.html">
+        Day 24 Lab - Floating Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day25lab.html">
+        Day 25 Lab - EIGRP Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day26lab.html">
+        Day 26 Lab - OSPF (part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day27lab.html">
+        Day 27 Lab - OSPF (part 2)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day28lab.html">
+        Day 28 Lab - OSPF (part 3)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day29lab.html">
+        Day 29 Lab - HSRP Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day31lab.html">
+        Day 31 Lab - IPv6 Configuration (Part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day32lab.html">
+        Day 32 Lab - IPv6 Configuration (Part 2)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day33lab.html">
+        Day 33 Lab - IPv6 Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day34lab.html">
+        Day 34 Lab - Standard ACLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day35lab.html">
+        Day 35 Lab - Extended ACLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day36lab.html">
+        Day 36 Lab - CDP and LLDP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day37lab.html">
+        Day 37 Lab - NTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day38lab.html">
+        Day 38 Lab - DNS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day39lab.html">
+        Day 39 Lab - DHCP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day40lab.html">
+        Day 40 Lab - SNMP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day41lab.html">
+        Day 41 Lab - Syslog
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day42lab.html">
+        Day 42 Lab - SSH
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day43lab.html">
+        Day 43 Lab - FTP and TFTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day44lab.html">
+        Day 44 Lab - Static NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day45lab.html">
+        Day 45 Lab - Dynamic NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day46lab.html">
+        Day 46 Lab - Voice VLANs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day47lab.html">
+        Day 47 Lab - QoS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day49lab.html">
+        Day 49 Lab - Port Security
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day50lab.html">
+        Day 50 Lab - DHCP Snooping
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day51lab.html">
+        Day 51 Lab - Dynamic ARP Inspection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../labs/day58lab.html">
+        Day 58 Lab - Wireless LANs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_3" tabindex="0">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-qol.html">
+        Quality of Life Settings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-security.html">
+        Setting Security
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-interfaces.html">
+        Interfaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-vlans.html">
+        VLANs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-trunking.html">
+        Trunking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-etherchannel.html">
+        EtherChannel
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          EtherChannel with VLAN Trunking
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="guide-etherchannelvlantrunk.html">
+        EtherChannel with VLAN Trunking
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands-used">
+    Commands Used
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configurations">
+    Configurations
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-routinginlan.html">
+        Routing in the LAN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-SPAN.html">
+        SPAN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="guide-RSPAN.html">
+        RSPAN
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands-used">
+    Commands Used
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configurations">
+    Configurations
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="vlan-trunk-over-an-etherchannel">VLAN Trunk over an EtherChannel</h1>
+<h2 id="commands-used">Commands Used</h2>
+<ul>
+<li>Verify<ul>
+<li><code>show interfaces trunk</code></li>
+<li><code>show vlan brief</code></li>
+<li><code>show etherchannel summary</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="configurations">Configurations</h2>
+<details class="note">
+<summary>Configuring an EtherChannel as a VLAN Trunk</summary>
+<p>Honestly, this is pretty much the same thing as the EtherChannel guide. An EtherChannel will most likely always be a trunk.</p>
+<p><figure markdown="">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="/PT_screenshots/etherchannelvlantrunk_a.PNG"><img alt="Day 44 Topology" src="/PT_screenshots/etherchannelvlantrunk_a.PNG" width="800"/></a>
+<figcaption></figcaption>
+</figure></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">SW1</label><label for="__tabbed_1_2">SW2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>SW1#configure<span class="w"> </span>terminal<span class="w"> </span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>SW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#int f0/1</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport access vlan 10</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#int f0/2</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport access vlan 20</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>!<span class="w"> </span>This<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>bug,<span class="w"> </span>but<span class="w"> </span>I<span class="err">'</span>ve<span class="w"> </span>had<span class="w"> </span>more<span class="w"> </span>success<span class="w"> </span>with<span class="w"> </span>first<span class="w"> </span>shutting<span class="w"> </span>down<span class="w"> </span>the<span class="w"> </span>interfaces<span class="w"> </span>before<span class="w"> </span>adding<span class="w"> </span>them<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>etherchannel
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#int range g0/1-2</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>SW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#shut</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#int range g0/1-2</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>SW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#channel-group 1 mode on</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>SW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int port-channel 1</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport mode trunk</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#end</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>SW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range g0/1-2</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>SW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#no shut</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>SW2#configure<span class="w"> </span>terminal<span class="w"> </span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>SW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#int f0/1</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>SW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport access vlan 10</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>SW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#int f0/2</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>SW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport access vlan 20</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>!<span class="w"> </span>This<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>bug,<span class="w"> </span>but<span class="w"> </span>I<span class="err">'</span>ve<span class="w"> </span>had<span class="w"> </span>more<span class="w"> </span>success<span class="w"> </span>with<span class="w"> </span>first<span class="w"> </span>shutting<span class="w"> </span>down<span class="w"> </span>the<span class="w"> </span>interfaces<span class="w"> </span>before<span class="w"> </span>adding<span class="w"> </span>them<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>etherchannel
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>SW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#int range g0/1-2</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>SW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#shut</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>SW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#int range g0/1-2</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>SW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#channel-group 1 mode on</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>SW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int port-channel 1</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>SW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport mode trunk</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>SW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#end</span>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>SW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range g0/1-2</span>
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>SW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#no shut     </span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</details>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.tabs", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

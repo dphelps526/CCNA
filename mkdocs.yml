@@ -1,0 +1,84 @@
+site_name: CCNA
+site_url: ""
+use_directory_urls: false
+
+theme: 
+  name: material
+  features:
+    - navigation.top
+    - navigation.tabs
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - pymdownx.tabbed:
+      alternate_style: true 
+
+plugins:
+  - glightbox
+
+nav:
+  - Home:
+    - Quick Reference: quickref.md
+    - Commands: commands.md
+  - Labs:
+    - Day 06 Lab - Ethernet LAN Switching: labs/day06lab.md
+    - Day 08 Lab - IPv4 Addresses: labs/day08lab.md
+    - Day 09 Lab - Interface Configuration: labs/day09lab.md
+    - Day 11 Lab - Configuring Static Routes: labs/day11lab.md
+    - Day 16 Lab - VLANS (Part 1): labs/day16lab.md
+    - Day 17 Lab - VLANS (Part 2) - Routing in the LAN - ROAS: labs/day17lab.md
+    - Day 18 Lab - VLANS (Part 3) - Routing in the LAN - Multilayer Switching: labs/day18lab.md
+    - Day 19 Lab - DTP and VTP: labs/day19lab.md
+    - Day 20 Lab - Analyzing STP: labs/day20lab.md
+    - Day 21 Lab - Configuring Spanning Tree: labs/day21lab.md
+    - Day 22 Lab - Rapid STP: labs/day22lab.md
+    - Day 23 Lab - EtherChannel: labs/day23lab.md
+    - Day 24 Lab - Floating Static Routes: labs/day24lab.md
+    - Day 25 Lab - EIGRP Configuration: labs/day25lab.md
+    - Day 26 Lab - OSPF (part 1): labs/day26lab.md
+    - Day 27 Lab - OSPF (part 2): labs/day27lab.md
+    - Day 28 Lab - OSPF (part 3): labs/day28lab.md
+    - Day 29 Lab - HSRP Configuration: labs/day29lab.md
+    - Day 31 Lab - IPv6 Configuration (Part 1): labs/day31lab.md
+    - Day 32 Lab - IPv6 Configuration (Part 2): labs/day32lab.md
+    - Day 33 Lab - IPv6 Static Routes: labs/day33lab.md
+    - Day 34 Lab - Standard ACLs: labs/day34lab.md
+    - Day 35 Lab - Extended ACLs: labs/day35lab.md
+    - Day 36 Lab - CDP and LLDP: labs/day36lab.md
+    - Day 37 Lab - NTP: labs/day37lab.md
+    - Day 38 Lab - DNS: labs/day38lab.md
+    - Day 39 Lab - DHCP: labs/day39lab.md
+    - Day 40 Lab - SNMP: labs/day40lab.md
+    - Day 41 Lab - Syslog: labs/day41lab.md
+    - Day 42 Lab - SSH: labs/day42lab.md
+    - Day 43 Lab - FTP and TFTP: labs/day43lab.md
+    - Day 44 Lab - Static NAT: labs/day44lab.md
+    - Day 45 Lab - Dynamic NAT: labs/day45lab.md
+    - Day 46 Lab - Voice VLANs: labs/day46lab.md
+    - Day 47 Lab - QoS: labs/day47lab.md
+    - Day 49 Lab - Port Security: labs/day49lab.md
+    - Day 50 Lab - DHCP Snooping: labs/day50lab.md
+    - Day 51 Lab - Dynamic ARP Inspection: labs/day51lab.md
+    - Day 58 Lab - Wireless LANs: labs/day58lab.md
+  - Guides:
+    - Quality of Life Settings: guides/guide-qol.md
+    - Setting Security: guides/guide-security.md
+    - Interfaces: guides/guide-interfaces.md
+    - VLANs: guides/guide-vlans.md
+    - Trunking: guides/guide-trunking.md
+    - EtherChannel: guides/guide-etherchannel.md
+    - EtherChannel with VLAN Trunking: guides/guide-etherchannelvlantrunk.md
+    - Routing in the LAN: guides/guide-routinginlan.md
+    - SPAN: guides/guide-SPAN.md
+    - RSPAN: guides/guide-RSPAN.md

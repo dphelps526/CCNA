@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="day32lab.html" rel="prev"/>
+<link href="day34lab.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>Day 33 Lab - IPv6 Static Routes - CCNA</title>
+<link href="../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ipv6-static-routes">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="CCNA" class="md-header__button md-logo" data-md-component="logo" href=".." title="CCNA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            CCNA
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Day 33 Lab - IPv6 Static Routes
+            
+          </span>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../quickref.html">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="day06lab.html">
+        Labs
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../guides/guide-qol.html">
+        Guides
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="CCNA" class="md-nav__button md-logo" data-md-component="logo" href=".." title="CCNA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    CCNA
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_1" tabindex="0">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quickref.html">
+        Quick Reference
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../commands.html">
+        Commands
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
+          Labs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Labs" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Labs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="day06lab.html">
+        Day 06 Lab - Ethernet LAN Switching
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day08lab.html">
+        Day 08 Lab - IPv4 Addresses
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day09lab.html">
+        Day 09 Lab - Interface Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day11lab.html">
+        Day 11 Lab - Configuring Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day16lab.html">
+        Day 16 Lab - VLANS (Part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day17lab.html">
+        Day 17 Lab - VLANS (Part 2) - Routing in the LAN - ROAS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day18lab.html">
+        Day 18 Lab - VLANS (Part 3) - Routing in the LAN - Multilayer Switching
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day19lab.html">
+        Day 19 Lab - DTP and VTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day20lab.html">
+        Day 20 Lab - Analyzing STP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day21lab.html">
+        Day 21 Lab - Configuring Spanning Tree
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day22lab.html">
+        Day 22 Lab - Rapid STP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day23lab.html">
+        Day 23 Lab - EtherChannel
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day24lab.html">
+        Day 24 Lab - Floating Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day25lab.html">
+        Day 25 Lab - EIGRP Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day26lab.html">
+        Day 26 Lab - OSPF (part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day27lab.html">
+        Day 27 Lab - OSPF (part 2)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day28lab.html">
+        Day 28 Lab - OSPF (part 3)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day29lab.html">
+        Day 29 Lab - HSRP Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day31lab.html">
+        Day 31 Lab - IPv6 Configuration (Part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day32lab.html">
+        Day 32 Lab - IPv6 Configuration (Part 2)
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Day 33 Lab - IPv6 Static Routes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="day33lab.html">
+        Day 33 Lab - IPv6 Static Routes
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#packet-tracer">
+    Packet Tracer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#topology">
+    Topology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions">
+    Questions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#answers">
+    Answers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day34lab.html">
+        Day 34 Lab - Standard ACLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day35lab.html">
+        Day 35 Lab - Extended ACLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day36lab.html">
+        Day 36 Lab - CDP and LLDP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day37lab.html">
+        Day 37 Lab - NTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day38lab.html">
+        Day 38 Lab - DNS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day39lab.html">
+        Day 39 Lab - DHCP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day40lab.html">
+        Day 40 Lab - SNMP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day41lab.html">
+        Day 41 Lab - Syslog
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day42lab.html">
+        Day 42 Lab - SSH
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day43lab.html">
+        Day 43 Lab - FTP and TFTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day44lab.html">
+        Day 44 Lab - Static NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day45lab.html">
+        Day 45 Lab - Dynamic NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day46lab.html">
+        Day 46 Lab - Voice VLANs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day47lab.html">
+        Day 47 Lab - QoS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day49lab.html">
+        Day 49 Lab - Port Security
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day50lab.html">
+        Day 50 Lab - DHCP Snooping
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day51lab.html">
+        Day 51 Lab - Dynamic ARP Inspection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day58lab.html">
+        Day 58 Lab - Wireless LANs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_3" tabindex="0">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-qol.html">
+        Quality of Life Settings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-security.html">
+        Setting Security
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-interfaces.html">
+        Interfaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-vlans.html">
+        VLANs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-trunking.html">
+        Trunking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-etherchannel.html">
+        EtherChannel
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-etherchannelvlantrunk.html">
+        EtherChannel with VLAN Trunking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-routinginlan.html">
+        Routing in the LAN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-SPAN.html">
+        SPAN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-RSPAN.html">
+        RSPAN
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#packet-tracer">
+    Packet Tracer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#topology">
+    Topology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions">
+    Questions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#answers">
+    Answers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="ipv6-static-routes">IPv6 Static Routes</h1>
+<h2 id="introduction">Introduction</h2>
+<h3 id="packet-tracer">Packet Tracer</h3>
+<p><a -="-" 33="33" download='"Day' href="/JITL/Day%2033%20Lab%20-%20IPv6%20Static%20Routes.pkt" ipv6="IPv6" lab="Lab" routes="Routes" static="Static">Download Day 33 Lab - IPv6 Static Routes</a></p>
+<h3 id="topology">Topology</h3>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="/PT_screenshots/day33.PNG"><img alt="Day 33 Topology" src="/PT_screenshots/day33.PNG" width="800"/></a>
+</p>
+<figcaption></figcaption>
+</figure>
+<h3 id="questions">Questions</h3>
+<p>IPv6 addresses have been pre-configured on the routers.
+The serial connections use link-local addresses only.</p>
+<ol>
+<li>
+<p>Enable IPv6 routing on each router.</p>
+</li>
+<li>
+<p>Use SLAAC to configure IPv6 addresses on the PCs.
+    What IPv6 address was configured on each PC?</p>
+</li>
+<li>
+<p>Configure static routes on the routers to allow PC1 and PC2 to ping each other. The path via R2 should be used only as a backup path.</p>
+</li>
+</ol>
+<h2 id="answers">Answers</h2>
+<details>
+<summary>1. Enable IPv6 routing on each router.</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">R1</label><label for="__tabbed_1_2">R2</label><label for="__tabbed_1_3">R3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>R1<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 unicast-routing </span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>R2<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 unicast-routing </span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>R3<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 unicast-routing </span>
+</code></pre></div>
+</div>
+</div>
+</input></input></input></div>
+</details>
+<details>
+<summary>2. Use SLAAC to configure IPv6 addresses on the PCs. What IPv6 address was configured on each PC?</summary>
+<p>When we switch the PC's Gateway to Automatic, there's an IP address automatically filled in. This must be R1's Link-Local address that it learned from the NDP router advertisement messages.</p>
+<p>When we do the same for the PCs IPV6 address, we see that an ipv6 address is automatically filled in. It learns the network prefix from R1 and the second half was generated using EUI-64.</p>
+<p>Note: This won't work if you forget to enable IPv6 routing on the routers</p>
+</details>
+<details>
+<summary>3. Configure static routes on the routers to allow PC1 and PC2 to ping each other. The path via R2 should be used only as a backup path.</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">R1</label><label for="__tabbed_2_2">R2</label><label for="__tabbed_2_3">R3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>R1<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 route 2001:db8:0:3::/64 g0/1 2001:db8:0:13::2</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>R1<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 route 2001:db8:0:3::/64 s0/0/0 FE80::20B:BEFF:FED7:4901 5</span>
+</code></pre></div>
+<p>Note: A static route has a default administrative distance of 1. So we'll need to change the AD of the serial route to something higher, in this case we'll set it to 5</p>
+<details class="abstract">
+<summary>Confirm</summary>
+<p>We'll check the routing table to make sure our static route is in there.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>R1<span class="o">(</span>config<span class="o">)</span><span class="c1">#do show ipv6 route</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>IPv6<span class="w"> </span>Routing<span class="w"> </span>Table<span class="w"> </span>-<span class="w"> </span><span class="m">6</span><span class="w"> </span>entries
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>Codes:<span class="w"> </span>C<span class="w"> </span>-<span class="w"> </span>Connected,<span class="w"> </span>L<span class="w"> </span>-<span class="w"> </span>Local,<span class="w"> </span>S<span class="w"> </span>-<span class="w"> </span>Static,<span class="w"> </span>R<span class="w"> </span>-<span class="w"> </span>RIP,<span class="w"> </span>B<span class="w"> </span>-<span class="w"> </span>BGP
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span>U<span class="w"> </span>-<span class="w"> </span>Per-user<span class="w"> </span>Static<span class="w"> </span>route,<span class="w"> </span>M<span class="w"> </span>-<span class="w"> </span>MIPv6
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span>I1<span class="w"> </span>-<span class="w"> </span>ISIS<span class="w"> </span>L1,<span class="w"> </span>I2<span class="w"> </span>-<span class="w"> </span>ISIS<span class="w"> </span>L2,<span class="w"> </span>IA<span class="w"> </span>-<span class="w"> </span>ISIS<span class="w"> </span>interarea,<span class="w"> </span>IS<span class="w"> </span>-<span class="w"> </span>ISIS<span class="w"> </span>summary
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span>ND<span class="w"> </span>-<span class="w"> </span>ND<span class="w"> </span>Default,<span class="w"> </span>NDp<span class="w"> </span>-<span class="w"> </span>ND<span class="w"> </span>Prefix,<span class="w"> </span>DCE<span class="w"> </span>-<span class="w"> </span>Destination,<span class="w"> </span>NDr<span class="w"> </span>-<span class="w"> </span>Redirect
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span>O<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>intra,<span class="w"> </span>OI<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>inter,<span class="w"> </span>OE1<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>ext<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>OE2<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>ext<span class="w"> </span><span class="m">2</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span>ON1<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>NSSA<span class="w"> </span>ext<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>ON2<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>NSSA<span class="w"> </span>ext<span class="w"> </span><span class="m">2</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span>D<span class="w"> </span>-<span class="w"> </span>EIGRP,<span class="w"> </span>EX<span class="w"> </span>-<span class="w"> </span>EIGRP<span class="w"> </span>external
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>C<span class="w">   </span><span class="m">2001</span>:DB8:0:1::/64<span class="w"> </span><span class="o">[</span><span class="m">0</span>/0<span class="o">]</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span>via<span class="w"> </span>GigabitEthernet0/0,<span class="w"> </span>directly<span class="w"> </span>connected
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>L<span class="w">   </span><span class="m">2001</span>:DB8:0:1::1/128<span class="w"> </span><span class="o">[</span><span class="m">0</span>/0<span class="o">]</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span>via<span class="w"> </span>GigabitEthernet0/0,<span class="w"> </span>receive
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>S<span class="w">   </span><span class="m">2001</span>:DB8:0:3::/64<span class="w"> </span><span class="o">[</span><span class="m">1</span>/0<span class="o">]</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">    </span>via<span class="w"> </span><span class="m">2001</span>:DB8:0:13::2,<span class="w"> </span>GigabitEthernet0/1
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>C<span class="w">   </span><span class="m">2001</span>:DB8:0:13::/64<span class="w"> </span><span class="o">[</span><span class="m">0</span>/0<span class="o">]</span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span>via<span class="w"> </span>GigabitEthernet0/1,<span class="w"> </span>directly<span class="w"> </span>connected
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>L<span class="w">   </span><span class="m">2001</span>:DB8:0:13::1/128<span class="w"> </span><span class="o">[</span><span class="m">0</span>/0<span class="o">]</span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span>via<span class="w"> </span>GigabitEthernet0/1,<span class="w"> </span>receive
+<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a>L<span class="w">   </span>FF00::/8<span class="w"> </span><span class="o">[</span><span class="m">0</span>/0<span class="o">]</span>
+<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">    </span>via<span class="w"> </span>Null0,<span class="w"> </span>receive
+</code></pre></div>
+<p>Since it won't show both routes, we'll have to use another command to find the floating route.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>R1<span class="o">(</span>config<span class="o">)</span><span class="c1">#do show run | include ipv6 route</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>ipv6<span class="w"> </span>route<span class="w"> </span><span class="m">2001</span>:DB8:0:3::/64<span class="w"> </span>GigabitEthernet0/1<span class="w"> </span><span class="m">2001</span>:DB8:0:13::2
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>ipv6<span class="w"> </span>route<span class="w"> </span><span class="m">2001</span>:DB8:0:3::/64<span class="w"> </span>Serial0/0/0<span class="w"> </span>FE80::20B:BEFF:FED7:4901<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>R2<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 route 2001:db8:0:1::/64 s0/0/0 FE80::202:4AFF:FE23:E201</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>R2<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 route 2001:db8:0:3::/64 s0/0/1 FE80::290:2BFF:FECC:A101</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>R3<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 route 2001:db8:0:1::/64 g0/1 2001:db8:0:13::1</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>R3<span class="o">(</span>config<span class="o">)</span><span class="c1">#ipv6 route 2001:db8:0:1::/64 s0/0/0 FE80::20B:BEFF:FED7:4901 5</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></input></div>
+</details>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>spanning-tree portfast</code></li>
+<li><code>spanning-tree link-type point-to-point</code></li>
+</ul>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.tabs", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

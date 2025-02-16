@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="day21lab.html" rel="prev"/>
+<link href="day23lab.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>Day 22 Lab - Rapid STP - CCNA</title>
+<link href="../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#rapid-stp">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="CCNA" class="md-header__button md-logo" data-md-component="logo" href=".." title="CCNA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            CCNA
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Day 22 Lab - Rapid STP
+            
+          </span>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../quickref.html">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="day06lab.html">
+        Labs
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../guides/guide-qol.html">
+        Guides
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="CCNA" class="md-nav__button md-logo" data-md-component="logo" href=".." title="CCNA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    CCNA
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_1" tabindex="0">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quickref.html">
+        Quick Reference
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../commands.html">
+        Commands
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
+          Labs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Labs" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Labs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="day06lab.html">
+        Day 06 Lab - Ethernet LAN Switching
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day08lab.html">
+        Day 08 Lab - IPv4 Addresses
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day09lab.html">
+        Day 09 Lab - Interface Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day11lab.html">
+        Day 11 Lab - Configuring Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day16lab.html">
+        Day 16 Lab - VLANS (Part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day17lab.html">
+        Day 17 Lab - VLANS (Part 2) - Routing in the LAN - ROAS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day18lab.html">
+        Day 18 Lab - VLANS (Part 3) - Routing in the LAN - Multilayer Switching
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day19lab.html">
+        Day 19 Lab - DTP and VTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day20lab.html">
+        Day 20 Lab - Analyzing STP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day21lab.html">
+        Day 21 Lab - Configuring Spanning Tree
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Day 22 Lab - Rapid STP
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="day22lab.html">
+        Day 22 Lab - Rapid STP
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#packet-tracer">
+    Packet Tracer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#topology">
+    Topology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions">
+    Questions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#answers">
+    Answers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day23lab.html">
+        Day 23 Lab - EtherChannel
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day24lab.html">
+        Day 24 Lab - Floating Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day25lab.html">
+        Day 25 Lab - EIGRP Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day26lab.html">
+        Day 26 Lab - OSPF (part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day27lab.html">
+        Day 27 Lab - OSPF (part 2)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day28lab.html">
+        Day 28 Lab - OSPF (part 3)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day29lab.html">
+        Day 29 Lab - HSRP Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day31lab.html">
+        Day 31 Lab - IPv6 Configuration (Part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day32lab.html">
+        Day 32 Lab - IPv6 Configuration (Part 2)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day33lab.html">
+        Day 33 Lab - IPv6 Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day34lab.html">
+        Day 34 Lab - Standard ACLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day35lab.html">
+        Day 35 Lab - Extended ACLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day36lab.html">
+        Day 36 Lab - CDP and LLDP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day37lab.html">
+        Day 37 Lab - NTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day38lab.html">
+        Day 38 Lab - DNS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day39lab.html">
+        Day 39 Lab - DHCP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day40lab.html">
+        Day 40 Lab - SNMP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day41lab.html">
+        Day 41 Lab - Syslog
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day42lab.html">
+        Day 42 Lab - SSH
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day43lab.html">
+        Day 43 Lab - FTP and TFTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day44lab.html">
+        Day 44 Lab - Static NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day45lab.html">
+        Day 45 Lab - Dynamic NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day46lab.html">
+        Day 46 Lab - Voice VLANs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day47lab.html">
+        Day 47 Lab - QoS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day49lab.html">
+        Day 49 Lab - Port Security
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day50lab.html">
+        Day 50 Lab - DHCP Snooping
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day51lab.html">
+        Day 51 Lab - Dynamic ARP Inspection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day58lab.html">
+        Day 58 Lab - Wireless LANs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_3" tabindex="0">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-qol.html">
+        Quality of Life Settings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-security.html">
+        Setting Security
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-interfaces.html">
+        Interfaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-vlans.html">
+        VLANs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-trunking.html">
+        Trunking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-etherchannel.html">
+        EtherChannel
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-etherchannelvlantrunk.html">
+        EtherChannel with VLAN Trunking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-routinginlan.html">
+        Routing in the LAN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-SPAN.html">
+        SPAN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-RSPAN.html">
+        RSPAN
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#packet-tracer">
+    Packet Tracer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#topology">
+    Topology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions">
+    Questions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#answers">
+    Answers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="rapid-stp">Rapid STP</h1>
+<h2 id="introduction">Introduction</h2>
+<h3 id="packet-tracer">Packet Tracer</h3>
+<p><a download="Day 22 Lab - Rapid STP" href="/JITL/Day%2022%20Lab%20-%20Rapid%20STP.pkt">Download Day 22 Lab - Configuring Spanning Tree</a></p>
+<h3 id="topology">Topology</h3>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="/PT_screenshots/day22.PNG"><img alt="Day 22 Topology" src="/PT_screenshots/day22.PNG" width="800"/></a>
+</p>
+<figcaption></figcaption>
+</figure>
+<h3 id="questions">Questions</h3>
+<ol>
+<li>Which switch is the root bridge? Use the CLI to examine the port role/state of each interface on the root. What appears different than what you have learned about the root bridge? What is the cause of this?</li>
+<li>Without using the CLI, determine the port role/state of each remaining switch interface. Use the CLI to confirm.</li>
+<li>Manually configure the appropriate RSTP link type on each interface. What do you think is the correct link type for SW1's F0/24?</li>
+</ol>
+<h2 id="answers">Answers</h2>
+<details>
+<summary>1. Which switch is the root bridge? Use the CLI to examine the port role/state of each interface on the root. What appears different than what you have learned about the root bridge? What is the cause of this?</summary>
+<ul>
+<li><code>show spanning-tree</code></li>
+</ul>
+<p>Each switch has a priority of 32769, which is 32768+1 so we can tell that they're all for VLAN 1.</p>
+<p>SW1 is the Root Bridge. In previous STP labs and lectures, we learned that every port on the root bridge is designated. In reality, it is more accurate to say that the root bridge has a designated port for each collision domain that it is connected to.</p>
+<p><figure markdown="">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="/PT_screenshots/day22_A.PNG"><img alt="Day 22 Topology" src="/PT_screenshots/day22_A.PNG" width="800"/></a>
+<figcaption></figcaption>
+</figure></p>
+</details>
+<details>
+<summary>2. Without using the CLI, determine the port role/state of each remaining switch interface. Use the CLI to confirm.</summary>
+<details class="abstract">
+<summary>Step 1: One Switch is elected as the Root Bridge. All ports on the Root Bridge are Designated Ports. (kind of)</summary>
+<p>Tie Breaker:</p>
+<ul>
+<li>Lowerst Bridge ID</li>
+<li>Lowest MAC Address</li>
+</ul>
+<p>First, we already know the root bridge.</p>
+<p><figure markdown="">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="/PT_screenshots/day22_B.PNG"><img alt="Day 22 Topology" src="/PT_screenshots/day22_B.PNG" width="800"/></a>
+<figcaption></figcaption>
+</figure></p>
+</details>
+<details class="abstract">
+<summary>Step 2: Each remaining switch will select ONE of its interfaces to be its Root Port. Ports across Root Ports are always Designated Ports.</summary>
+<p>Tie Breaker:</p>
+<ul>
+<li>Lowest Root Cost</li>
+<li>Lowest neighbor bridge ID</li>
+<li>Lowest neighbor port ID</li>
+</ul>
+<p>Next, every other switch needs to have a Root Port. The first criteria to determine the root port is the root cost, that is, the interface with the lowest root cost will become the root port.</p>
+<p>Then, any port connected to a Root Port is also Designated. Therefore, SW4's G0/1 port becomes designated.</p>
+<p><figure markdown="">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="/PT_screenshots/day22_C.PNG"><img alt="Day 20 Topology" src="/PT_screenshots/day22_C.PNG" width="800"/></a>
+<figcaption></figcaption>
+</figure></p>
+</details>
+<details class="abstract">
+<summary>Step 3: Each remaining collision domain will select one interface to be a Designated Port. The other port will be Non-Designated.</summary>
+<p>Tie Breaker:</p>
+<ul>
+<li>Interface on switch with lowest root cost</li>
+<li>interface on switch with lowest bridge ID</li>
+</ul>
+<p>Next, in each remaining collision domain, we must determine which side will be Designated and which will be Non-Designated.</p>
+<p><figure markdown="">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="/PT_screenshots/day22_D.PNG"><img alt="Day 20 Topology" src="/PT_screenshots/day22_D.PNG" width="800"/></a>
+<figcaption></figcaption>
+</figure></p>
+</details>
+</details>
+<details>
+<summary>3. Manually configure the appropriate RSTP link type on each interface. What do you think is the correct link type for SW1's F0/24?</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">SW1</label><label for="__tabbed_1_2">SW2</label><label for="__tabbed_1_3">SW3</label><label for="__tabbed_1_4">SW4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>SW1&gt;en
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>SW1#conf<span class="w"> </span>t
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>SW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#int f0/24</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#spanning-tree portfast </span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>%Warning:<span class="w"> </span>portfast<span class="w"> </span>should<span class="w"> </span>only<span class="w"> </span>be<span class="w"> </span>enabled<span class="w"> </span>on<span class="w"> </span>ports<span class="w"> </span>connected<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>single
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>host.<span class="w"> </span>Connecting<span class="w"> </span>hubs,<span class="w"> </span>concentrators,<span class="w"> </span>switches,<span class="w"> </span>bridges,<span class="w"> </span>etc...<span class="w"> </span>to<span class="w"> </span>this
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>interface<span class="w">  </span>when<span class="w"> </span>portfast<span class="w"> </span>is<span class="w"> </span>enabled,<span class="w"> </span>can<span class="w"> </span>cause<span class="w"> </span>temporary<span class="w"> </span>bridging<span class="w"> </span>loops.
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>Use<span class="w"> </span>with<span class="w"> </span>CAUTION
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>%Portfast<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>configured<span class="w"> </span>on<span class="w"> </span>FastEthernet0/24<span class="w"> </span>but<span class="w"> </span>will<span class="w"> </span>only
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>have<span class="w"> </span>effect<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>interface<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>non-trunking<span class="w"> </span>mode.
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+<details class="abstract">
+<summary>Confirm</summary>
+<p>IRL, the Type for F0/24 would show Shr and Edge. Shr will be there if it's full duplex. Edge means portfast is enabled</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#do sh span</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>VLAN0001
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>Spanning<span class="w"> </span>tree<span class="w"> </span>enabled<span class="w"> </span>protocol<span class="w"> </span>rstp
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>Root<span class="w"> </span>ID<span class="w">    </span>Priority<span class="w">    </span><span class="m">32769</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">            </span>Address<span class="w">     </span><span class="m">0005</span>.5E4E.714B
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">            </span>This<span class="w"> </span>bridge<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>root
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">            </span>Hello<span class="w"> </span>Time<span class="w">  </span><span class="m">2</span><span class="w"> </span>sec<span class="w">  </span>Max<span class="w"> </span>Age<span class="w"> </span><span class="m">20</span><span class="w"> </span>sec<span class="w">  </span>Forward<span class="w"> </span>Delay<span class="w"> </span><span class="m">15</span><span class="w"> </span>sec
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>Bridge<span class="w"> </span>ID<span class="w">  </span>Priority<span class="w">    </span><span class="m">32769</span><span class="w">  </span><span class="o">(</span>priority<span class="w"> </span><span class="m">32768</span><span class="w"> </span>sys-id-ext<span class="w"> </span><span class="m">1</span><span class="o">)</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">            </span>Address<span class="w">     </span><span class="m">0005</span>.5E4E.714B
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">            </span>Hello<span class="w"> </span>Time<span class="w">  </span><span class="m">2</span><span class="w"> </span>sec<span class="w">  </span>Max<span class="w"> </span>Age<span class="w"> </span><span class="m">20</span><span class="w"> </span>sec<span class="w">  </span>Forward<span class="w"> </span>Delay<span class="w"> </span><span class="m">15</span><span class="w"> </span>sec
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">            </span>Aging<span class="w"> </span>Time<span class="w">  </span><span class="m">20</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>Interface<span class="w">        </span>Role<span class="w"> </span>Sts<span class="w"> </span>Cost<span class="w">      </span>Prio.Nbr<span class="w"> </span>Type
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>----------------<span class="w"> </span>----<span class="w"> </span>---<span class="w"> </span>---------<span class="w"> </span>--------<span class="w"> </span>--------------------------------
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>Fa0/1<span class="w">            </span>Desg<span class="w"> </span>FWD<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.1<span class="w">    </span>P2p
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>Fa0/2<span class="w">            </span>Desg<span class="w"> </span>FWD<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.2<span class="w">    </span>Shr
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>Fa0/3<span class="w">            </span>Back<span class="w"> </span>BLK<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.3<span class="w">    </span>Shr
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>Fa0/24<span class="w">           </span>Desg<span class="w"> </span>FWD<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.24<span class="w">   </span>Shr
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>SW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>SW2&gt;en
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>SW2#conf<span class="w"> </span>t
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>SW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range f0/23-24</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>SW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#spanning-tree portfast </span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>%Warning:<span class="w"> </span>portfast<span class="w"> </span>should<span class="w"> </span>only<span class="w"> </span>be<span class="w"> </span>enabled<span class="w"> </span>on<span class="w"> </span>ports<span class="w"> </span>connected<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>single
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>host.<span class="w"> </span>Connecting<span class="w"> </span>hubs,<span class="w"> </span>concentrators,<span class="w"> </span>switches,<span class="w"> </span>bridges,<span class="w"> </span>etc...<span class="w"> </span>to<span class="w"> </span>this
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>interface<span class="w">  </span>when<span class="w"> </span>portfast<span class="w"> </span>is<span class="w"> </span>enabled,<span class="w"> </span>can<span class="w"> </span>cause<span class="w"> </span>temporary<span class="w"> </span>bridging<span class="w"> </span>loops.
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>Use<span class="w"> </span>with<span class="w"> </span>CAUTION
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>%Portfast<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>configured<span class="w"> </span>on<span class="w"> </span>FastEthernet0/23<span class="w"> </span>but<span class="w"> </span>will<span class="w"> </span>only
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>have<span class="w"> </span>effect<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>interface<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>non-trunking<span class="w"> </span>mode.
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>%Warning:<span class="w"> </span>portfast<span class="w"> </span>should<span class="w"> </span>only<span class="w"> </span>be<span class="w"> </span>enabled<span class="w"> </span>on<span class="w"> </span>ports<span class="w"> </span>connected<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>single
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>host.<span class="w"> </span>Connecting<span class="w"> </span>hubs,<span class="w"> </span>concentrators,<span class="w"> </span>switches,<span class="w"> </span>bridges,<span class="w"> </span>etc...<span class="w"> </span>to<span class="w"> </span>this
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>interface<span class="w">  </span>when<span class="w"> </span>portfast<span class="w"> </span>is<span class="w"> </span>enabled,<span class="w"> </span>can<span class="w"> </span>cause<span class="w"> </span>temporary<span class="w"> </span>bridging<span class="w"> </span>loops.
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>Use<span class="w"> </span>with<span class="w"> </span>CAUTION
+<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>
+<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>%Portfast<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>configured<span class="w"> </span>on<span class="w"> </span>FastEthernet0/24<span class="w"> </span>but<span class="w"> </span>will<span class="w"> </span>only
+<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>have<span class="w"> </span>effect<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>interface<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>non-trunking<span class="w"> </span>mode.
+<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>SW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Note: If we ran 'sh span' first, we would see that f0/2 is already shared so technically the only one we need to do is set f0/24 as an edge port</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>SW3&gt;en
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>SW3#conf<span class="w"> </span>t
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>!<span class="w"> </span>Configuring<span class="w"> </span>F0/24<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>edge<span class="w"> </span>port<span class="w"> </span>by<span class="w"> </span>enabling<span class="w"> </span>portfast
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>SW3<span class="o">(</span>config<span class="o">)</span><span class="c1">#int f0/24</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>SW3<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#spanning-tree portfast </span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>%Warning:<span class="w"> </span>portfast<span class="w"> </span>should<span class="w"> </span>only<span class="w"> </span>be<span class="w"> </span>enabled<span class="w"> </span>on<span class="w"> </span>ports<span class="w"> </span>connected<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>single
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>host.<span class="w"> </span>Connecting<span class="w"> </span>hubs,<span class="w"> </span>concentrators,<span class="w"> </span>switches,<span class="w"> </span>bridges,<span class="w"> </span>etc...<span class="w"> </span>to<span class="w"> </span>this
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>interface<span class="w">  </span>when<span class="w"> </span>portfast<span class="w"> </span>is<span class="w"> </span>enabled,<span class="w"> </span>can<span class="w"> </span>cause<span class="w"> </span>temporary<span class="w"> </span>bridging<span class="w"> </span>loops.
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>Use<span class="w"> </span>with<span class="w"> </span>CAUTION
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>%Portfast<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>configured<span class="w"> </span>on<span class="w"> </span>FastEthernet0/24<span class="w"> </span>but<span class="w"> </span>will<span class="w"> </span>only
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>have<span class="w"> </span>effect<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>interface<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>non-trunking<span class="w"> </span>mode.
+</code></pre></div>
+<details class="abstract">
+<summary>Confirm</summary>
+<p>We'll see that f0/2 is connected to a hub so we expect to see Shr</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>SW3<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#do sh span</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>VLAN0001
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>Spanning<span class="w"> </span>tree<span class="w"> </span>enabled<span class="w"> </span>protocol<span class="w"> </span>rstp
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>Root<span class="w"> </span>ID<span class="w">    </span>Priority<span class="w">    </span><span class="m">32769</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">            </span>Address<span class="w">     </span><span class="m">0005</span>.5E4E.714B
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">            </span>Cost<span class="w">        </span><span class="m">19</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">            </span>Port<span class="w">        </span><span class="m">2</span><span class="o">(</span>FastEthernet0/2<span class="o">)</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">            </span>Hello<span class="w"> </span>Time<span class="w">  </span><span class="m">2</span><span class="w"> </span>sec<span class="w">  </span>Max<span class="w"> </span>Age<span class="w"> </span><span class="m">20</span><span class="w"> </span>sec<span class="w">  </span>Forward<span class="w"> </span>Delay<span class="w"> </span><span class="m">15</span><span class="w"> </span>sec
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>Bridge<span class="w"> </span>ID<span class="w">  </span>Priority<span class="w">    </span><span class="m">32769</span><span class="w">  </span><span class="o">(</span>priority<span class="w"> </span><span class="m">32768</span><span class="w"> </span>sys-id-ext<span class="w"> </span><span class="m">1</span><span class="o">)</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">            </span>Address<span class="w">     </span>000C.8519.6EBA
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">            </span>Hello<span class="w"> </span>Time<span class="w">  </span><span class="m">2</span><span class="w"> </span>sec<span class="w">  </span>Max<span class="w"> </span>Age<span class="w"> </span><span class="m">20</span><span class="w"> </span>sec<span class="w">  </span>Forward<span class="w"> </span>Delay<span class="w"> </span><span class="m">15</span><span class="w"> </span>sec
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">            </span>Aging<span class="w"> </span>Time<span class="w">  </span><span class="m">20</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>Interface<span class="w">        </span>Role<span class="w"> </span>Sts<span class="w"> </span>Cost<span class="w">      </span>Prio.Nbr<span class="w"> </span>Type
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>----------------<span class="w"> </span>----<span class="w"> </span>---<span class="w"> </span>---------<span class="w"> </span>--------<span class="w"> </span>--------------------------------
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>Fa0/2<span class="w">            </span>Root<span class="w"> </span>FWD<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.2<span class="w">    </span>Shr
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>Fa0/1<span class="w">            </span>Desg<span class="w"> </span>BLK<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.1<span class="w">    </span>P2p
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a>Fa0/24<span class="w">           </span>Desg<span class="w"> </span>BLK<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.24<span class="w">   </span>P2p
+<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a>Gi0/1<span class="w">            </span>Desg<span class="w"> </span>BLK<span class="w"> </span><span class="m">4</span><span class="w">         </span><span class="m">128</span>.25<span class="w">   </span>P2p
+<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a>
+<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a>SW3<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>SW4&gt;en
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>SW4#conf<span class="w"> </span>t
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>!<span class="w"> </span>Setting<span class="w"> </span>F0/1<span class="w"> </span>and<span class="w"> </span>F0/2<span class="w"> </span>as<span class="w"> </span>P2P<span class="w"> </span>because<span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>directly<span class="w"> </span>connected
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>SW4<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range f0/1-2</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>SW4<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#spanning-tree link-type point-to-point </span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>!<span class="w"> </span>Configuring<span class="w"> </span>F0/24<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>edge<span class="w"> </span>port<span class="w"> </span>by<span class="w"> </span>enabling<span class="w"> </span>portfast
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>SW4<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int f0/24</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>SW4<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#spanning-tree portfast </span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>%Warning:<span class="w"> </span>portfast<span class="w"> </span>should<span class="w"> </span>only<span class="w"> </span>be<span class="w"> </span>enabled<span class="w"> </span>on<span class="w"> </span>ports<span class="w"> </span>connected<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>single
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>host.<span class="w"> </span>Connecting<span class="w"> </span>hubs,<span class="w"> </span>concentrators,<span class="w"> </span>switches,<span class="w"> </span>bridges,<span class="w"> </span>etc...<span class="w"> </span>to<span class="w"> </span>this
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>interface<span class="w">  </span>when<span class="w"> </span>portfast<span class="w"> </span>is<span class="w"> </span>enabled,<span class="w"> </span>can<span class="w"> </span>cause<span class="w"> </span>temporary<span class="w"> </span>bridging<span class="w"> </span>loops.
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>Use<span class="w"> </span>with<span class="w"> </span>CAUTION
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a>%Portfast<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>configured<span class="w"> </span>on<span class="w"> </span>FastEthernet0/24<span class="w"> </span>but<span class="w"> </span>will<span class="w"> </span>only
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a>have<span class="w"> </span>effect<span class="w"> </span>when<span class="w"> </span>the<span class="w"> </span>interface<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>non-trunking<span class="w"> </span>mode.
+</code></pre></div>
+<details class="abstract">
+<summary>Confirm</summary>
+<p>We'll see that 1 and 2 are set to P2P.</p>
+<p>IRL, the Type for F0/24 would show P2p and Edge. P2p will be there if it's full duplex. Edge means portfast is enabled</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>SW4<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#do sh spanni</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>VLAN0001
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>Spanning<span class="w"> </span>tree<span class="w"> </span>enabled<span class="w"> </span>protocol<span class="w"> </span>rstp
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>Root<span class="w"> </span>ID<span class="w">    </span>Priority<span class="w">    </span><span class="m">32769</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">            </span>Address<span class="w">     </span><span class="m">0005</span>.5E4E.714B
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">            </span>Cost<span class="w">        </span><span class="m">38</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">            </span>Port<span class="w">        </span><span class="m">1</span><span class="o">(</span>FastEthernet0/1<span class="o">)</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">            </span>Hello<span class="w"> </span>Time<span class="w">  </span><span class="m">2</span><span class="w"> </span>sec<span class="w">  </span>Max<span class="w"> </span>Age<span class="w"> </span><span class="m">20</span><span class="w"> </span>sec<span class="w">  </span>Forward<span class="w"> </span>Delay<span class="w"> </span><span class="m">15</span><span class="w"> </span>sec
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>Bridge<span class="w"> </span>ID<span class="w">  </span>Priority<span class="w">    </span><span class="m">32769</span><span class="w">  </span><span class="o">(</span>priority<span class="w"> </span><span class="m">32768</span><span class="w"> </span>sys-id-ext<span class="w"> </span><span class="m">1</span><span class="o">)</span>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">            </span>Address<span class="w">     </span>00E0.A381.AD46
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">            </span>Hello<span class="w"> </span>Time<span class="w">  </span><span class="m">2</span><span class="w"> </span>sec<span class="w">  </span>Max<span class="w"> </span>Age<span class="w"> </span><span class="m">20</span><span class="w"> </span>sec<span class="w">  </span>Forward<span class="w"> </span>Delay<span class="w"> </span><span class="m">15</span><span class="w"> </span>sec
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">            </span>Aging<span class="w"> </span>Time<span class="w">  </span><span class="m">20</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>Interface<span class="w">        </span>Role<span class="w"> </span>Sts<span class="w"> </span>Cost<span class="w">      </span>Prio.Nbr<span class="w"> </span>Type
+<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a>----------------<span class="w"> </span>----<span class="w"> </span>---<span class="w"> </span>---------<span class="w"> </span>--------<span class="w"> </span>--------------------------------
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>Fa0/2<span class="w">            </span>Altn<span class="w"> </span>BLK<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.2<span class="w">    </span>P2p
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a>Fa0/1<span class="w">            </span>Root<span class="w"> </span>FWD<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.1<span class="w">    </span>P2p
+<a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a>Fa0/24<span class="w">           </span>Desg<span class="w"> </span>FWD<span class="w"> </span><span class="m">19</span><span class="w">        </span><span class="m">128</span>.24<span class="w">   </span>P2p
+<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a>
+<a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a>SW4<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+</details>
+</div>
+</div>
+</input></input></input></input></div>
+</details>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>spanning-tree portfast</code></li>
+<li><code>spanning-tree link-type point-to-point</code></li>
+</ul>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.tabs", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

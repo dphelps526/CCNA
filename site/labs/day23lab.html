@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="day22lab.html" rel="prev"/>
+<link href="day24lab.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
+<title>Day 23 Lab - EtherChannel - CCNA</title>
+<link href="../assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#etherchannel">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="CCNA" class="md-header__button md-logo" data-md-component="logo" href=".." title="CCNA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            CCNA
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Day 23 Lab - EtherChannel
+            
+          </span>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../quickref.html">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="day06lab.html">
+        Labs
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../guides/guide-qol.html">
+        Guides
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="CCNA" class="md-nav__button md-logo" data-md-component="logo" href=".." title="CCNA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    CCNA
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_1" tabindex="0">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../quickref.html">
+        Quick Reference
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../commands.html">
+        Commands
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
+          Labs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Labs" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Labs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="day06lab.html">
+        Day 06 Lab - Ethernet LAN Switching
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day08lab.html">
+        Day 08 Lab - IPv4 Addresses
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day09lab.html">
+        Day 09 Lab - Interface Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day11lab.html">
+        Day 11 Lab - Configuring Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day16lab.html">
+        Day 16 Lab - VLANS (Part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day17lab.html">
+        Day 17 Lab - VLANS (Part 2) - Routing in the LAN - ROAS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day18lab.html">
+        Day 18 Lab - VLANS (Part 3) - Routing in the LAN - Multilayer Switching
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day19lab.html">
+        Day 19 Lab - DTP and VTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day20lab.html">
+        Day 20 Lab - Analyzing STP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day21lab.html">
+        Day 21 Lab - Configuring Spanning Tree
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day22lab.html">
+        Day 22 Lab - Rapid STP
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Day 23 Lab - EtherChannel
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="day23lab.html">
+        Day 23 Lab - EtherChannel
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#packet-tracer">
+    Packet Tracer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#topology">
+    Topology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions">
+    Questions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#answers">
+    Answers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day24lab.html">
+        Day 24 Lab - Floating Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day25lab.html">
+        Day 25 Lab - EIGRP Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day26lab.html">
+        Day 26 Lab - OSPF (part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day27lab.html">
+        Day 27 Lab - OSPF (part 2)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day28lab.html">
+        Day 28 Lab - OSPF (part 3)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day29lab.html">
+        Day 29 Lab - HSRP Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day31lab.html">
+        Day 31 Lab - IPv6 Configuration (Part 1)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day32lab.html">
+        Day 32 Lab - IPv6 Configuration (Part 2)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day33lab.html">
+        Day 33 Lab - IPv6 Static Routes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day34lab.html">
+        Day 34 Lab - Standard ACLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day35lab.html">
+        Day 35 Lab - Extended ACLs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day36lab.html">
+        Day 36 Lab - CDP and LLDP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day37lab.html">
+        Day 37 Lab - NTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day38lab.html">
+        Day 38 Lab - DNS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day39lab.html">
+        Day 39 Lab - DHCP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day40lab.html">
+        Day 40 Lab - SNMP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day41lab.html">
+        Day 41 Lab - Syslog
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day42lab.html">
+        Day 42 Lab - SSH
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day43lab.html">
+        Day 43 Lab - FTP and TFTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day44lab.html">
+        Day 44 Lab - Static NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day45lab.html">
+        Day 45 Lab - Dynamic NAT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day46lab.html">
+        Day 46 Lab - Voice VLANs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day47lab.html">
+        Day 47 Lab - QoS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day49lab.html">
+        Day 49 Lab - Port Security
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day50lab.html">
+        Day 50 Lab - DHCP Snooping
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day51lab.html">
+        Day 51 Lab - Dynamic ARP Inspection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="day58lab.html">
+        Day 58 Lab - Wireless LANs
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_3" tabindex="0">
+          Guides
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-qol.html">
+        Quality of Life Settings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-security.html">
+        Setting Security
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-interfaces.html">
+        Interfaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-vlans.html">
+        VLANs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-trunking.html">
+        Trunking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-etherchannel.html">
+        EtherChannel
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-etherchannelvlantrunk.html">
+        EtherChannel with VLAN Trunking
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-routinginlan.html">
+        Routing in the LAN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-SPAN.html">
+        SPAN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/guide-RSPAN.html">
+        RSPAN
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#packet-tracer">
+    Packet Tracer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#topology">
+    Topology
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#questions">
+    Questions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#answers">
+    Answers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="etherchannel">EtherChannel</h1>
+<h2 id="introduction">Introduction</h2>
+<h3 id="packet-tracer">Packet Tracer</h3>
+<p><a -="-" 23="23" download='"Day' etherchannel="EtherChannel" href="/JITL/Day%2023%20Lab%20-%20EtherChannel.pkt" lab="Lab">Download Day 23 Lab - EtherChannel</a></p>
+<h3 id="topology">Topology</h3>
+<figure>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="/PT_screenshots/day23.PNG"><img alt="Day 23 Topology" src="/PT_screenshots/day23.PNG" width="800"/></a>
+</p>
+<figcaption></figcaption>
+</figure>
+<h3 id="questions">Questions</h3>
+<p><em>End host and SVI IP addresses are pre-configured</em></p>
+<ol>
+<li>Configure Layer 2 EtherChannel between ASW1 and DSW1 using LACP. Configure it as a trunk.</li>
+<li>Configure Layer 2 EtherChannel between ASW2 and DSW2 using PAgP. Configure it as a trunk.</li>
+<li>Configure Layer 3 EtherChannel between DSW1 and DSW2 using static EtherChannel.</li>
+<li>Configure routes to allow the PCs to reach SRV1.</li>
+<li>What is the default EtherChannel load-balancing method used on each switch?</li>
+<li>Configure the switches to load-balance based on source and destination IP addresses.</li>
+</ol>
+<h2 id="answers">Answers</h2>
+<details>
+<summary>1. Configure Layer 2 EtherChannel between ASW1 and DSW1 using LACP. Configure it as a trunk.</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">ASW1</label><label for="__tabbed_1_2">DSW1</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>ASW1&gt;en
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>ASW1#conf<span class="w"> </span>t
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>!<span class="w"> </span>Assigning<span class="w"> </span>G0/1<span class="w"> </span>and<span class="w"> </span>G0/2<span class="w"> </span>to<span class="w"> </span>EtherChannel<span class="w"> </span><span class="m">1</span><span class="w"> </span>and<span class="w"> </span>LACP<span class="w"> </span>active
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>ASW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range g0/1-2</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>ASW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#channel-group 1 mode active</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>ASW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>Creating<span class="w"> </span>a<span class="w"> </span>port-channel<span class="w"> </span>interface<span class="w"> </span>Port-channel<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet0/1,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>down
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet0/1,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet0/2,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>down
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet0/2,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>!<span class="w"> </span>Making<span class="w"> </span>it<span class="w"> </span>a<span class="w"> </span>trunk
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>ASW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int po1</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>ASW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport mode trunk</span>
+</code></pre></div>
+<details class="abstract">
+<summary>Confirm</summary>
+<p>First we'll check the running-config to see if they're there.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>ASW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#do sh run</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>Building<span class="w"> </span>configuration...
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>Current<span class="w"> </span>configuration<span class="w"> </span>:<span class="w"> </span><span class="m">1231</span><span class="w"> </span>bytes
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>!
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>version<span class="w"> </span><span class="m">12</span>.2
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>no<span class="w"> </span>service<span class="w"> </span>timestamps<span class="w"> </span>log<span class="w"> </span>datetime<span class="w"> </span>msec
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>no<span class="w"> </span>service<span class="w"> </span>timestamps<span class="w"> </span>debug<span class="w"> </span>datetime<span class="w"> </span>msec
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>no<span class="w"> </span>service<span class="w"> </span>password-encryption
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>!
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>hostname<span class="w"> </span>ASW1
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>!
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>!
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>!<span class="w"> </span>Omitted
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>!
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>!
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>!
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>spanning-tree<span class="w"> </span>extend<span class="w"> </span>system-id
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>!
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>interface<span class="w"> </span>Port-channel1
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>switchport<span class="w"> </span>mode<span class="w"> </span>trunk
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>!
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>!
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>!
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>!<span class="w"> </span>Omitted
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>!
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>!
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>!
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>interface<span class="w"> </span>FastEthernet0/24
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>!
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>interface<span class="w"> </span>GigabitEthernet0/1
+<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>switchport<span class="w"> </span>mode<span class="w"> </span>trunk
+<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>channel-group<span class="w"> </span><span class="m">1</span><span class="w"> </span>mode<span class="w"> </span>active
+<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>!
+<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>interface<span class="w"> </span>GigabitEthernet0/2
+<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>switchport<span class="w"> </span>mode<span class="w"> </span>trunk
+<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>channel-group<span class="w"> </span><span class="m">1</span><span class="w"> </span>mode<span class="w"> </span>active
+<a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>!
+<a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a>interface<span class="w"> </span>Vlan1
+<a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a>no<span class="w"> </span>ip<span class="w"> </span>address
+<a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a>shutdown
+<a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a>!
+<a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a>!
+<a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a>!
+<a href="#__codelineno-1-45" id="__codelineno-1-45" name="__codelineno-1-45"></a>!<span class="w"> </span>Omitted
+<a href="#__codelineno-1-46" id="__codelineno-1-46" name="__codelineno-1-46"></a>!
+<a href="#__codelineno-1-47" id="__codelineno-1-47" name="__codelineno-1-47"></a>!
+<a href="#__codelineno-1-48" id="__codelineno-1-48" name="__codelineno-1-48"></a>!
+<a href="#__codelineno-1-49" id="__codelineno-1-49" name="__codelineno-1-49"></a>end
+<a href="#__codelineno-1-50" id="__codelineno-1-50" name="__codelineno-1-50"></a>
+<a href="#__codelineno-1-51" id="__codelineno-1-51" name="__codelineno-1-51"></a>
+<a href="#__codelineno-1-52" id="__codelineno-1-52" name="__codelineno-1-52"></a>ASW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+<p>We can also check the status of the etherchannel. The port-channel interface is SD meaning Layer 2 and Down.
+The individual port status is I (stand-alone) meaning that because somethings wrong with the port-channel, they are acting as standalone interfaces.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>ASW1#show<span class="w"> </span>etherchannel<span class="w"> </span>summary<span class="w"> </span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>Flags:<span class="w">  </span>D<span class="w"> </span>-<span class="w"> </span>down<span class="w">        </span>P<span class="w"> </span>-<span class="w"> </span><span class="k">in</span><span class="w"> </span>port-channel
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span>I<span class="w"> </span>-<span class="w"> </span>stand-alone<span class="w"> </span>s<span class="w"> </span>-<span class="w"> </span>suspended
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span>H<span class="w"> </span>-<span class="w"> </span>Hot-standby<span class="w"> </span><span class="o">(</span>LACP<span class="w"> </span>only<span class="o">)</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">        </span>R<span class="w"> </span>-<span class="w"> </span>Layer3<span class="w">      </span>S<span class="w"> </span>-<span class="w"> </span>Layer2
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span>U<span class="w"> </span>-<span class="w"> </span><span class="k">in</span><span class="w"> </span>use<span class="w">      </span>f<span class="w"> </span>-<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>allocate<span class="w"> </span>aggregator
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span>u<span class="w"> </span>-<span class="w"> </span>unsuitable<span class="w"> </span><span class="k">for</span><span class="w"> </span>bundling
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span>w<span class="w"> </span>-<span class="w"> </span>waiting<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>aggregated
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span>d<span class="w"> </span>-<span class="w"> </span>default<span class="w"> </span>port
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>Number<span class="w"> </span>of<span class="w"> </span>channel-groups<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>Number<span class="w"> </span>of<span class="w"> </span>aggregators:<span class="w">           </span><span class="m">1</span>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>Group<span class="w">  </span>Port-channel<span class="w">  </span>Protocol<span class="w">    </span>Ports
+<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>------+-------------+-----------+----------------------------------------------
+<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>
+<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="m">1</span><span class="w">      </span>Po1<span class="o">(</span>SD<span class="o">)</span><span class="w">           </span>LACP<span class="w">   </span>Gig0/1<span class="o">(</span>I<span class="o">)</span><span class="w"> </span>Gig0/2<span class="o">(</span>I<span class="o">)</span><span class="w"> </span>
+<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>ASW1#
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>DSW1&gt;en
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>DSW1#conf<span class="w"> </span>t
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range g1/0/3-4</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>DSW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#channel-group 1 mode active</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>DSW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>Creating<span class="w"> </span>a<span class="w"> </span>port-channel<span class="w"> </span>interface<span class="w"> </span>Port-channel<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet1/0/3,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>down
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet1/0/3,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet1/0/4,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>down
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet1/0/4,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>%LINK-5-CHANGED:<span class="w"> </span>Interface<span class="w"> </span>Port-channel1,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>Port-channel1,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>DSW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int po1</span>
+<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>!<span class="w"> </span>If<span class="w"> </span>the<span class="w"> </span>switch<span class="w"> </span>supports<span class="w"> </span>both<span class="w"> </span>ieee<span class="w"> </span>and<span class="w"> </span>isl<span class="w"> </span><span class="k">then</span><span class="w"> </span>we<span class="w"> </span>may<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>encapsulation<span class="w"> </span><span class="nb">type</span><span class="w"> </span>first.<span class="w"> </span>You<span class="err">'</span>ll<span class="w"> </span>get<span class="w"> </span>a<span class="w"> </span>warning<span class="w"> </span>message<span class="w"> </span>though<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span><span class="k">do</span><span class="w"> </span>mode<span class="w"> </span>trunk.
+<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a>DSW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#switchport trunk encapsulation dot1q</span>
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>DSW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport mode trunk</span>
+<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a>DSW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+<details class="abstract">
+<summary>Confirm</summary>
+<p>We can  check the status of the etherchannel. The port-channel interface is SU meaning Layer 2 and Up.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>DSW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#do sh ether sum</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>Flags:<span class="w">  </span>D<span class="w"> </span>-<span class="w"> </span>down<span class="w">        </span>P<span class="w"> </span>-<span class="w"> </span><span class="k">in</span><span class="w"> </span>port-channel
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">        </span>I<span class="w"> </span>-<span class="w"> </span>stand-alone<span class="w"> </span>s<span class="w"> </span>-<span class="w"> </span>suspended
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">        </span>H<span class="w"> </span>-<span class="w"> </span>Hot-standby<span class="w"> </span><span class="o">(</span>LACP<span class="w"> </span>only<span class="o">)</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span>R<span class="w"> </span>-<span class="w"> </span>Layer3<span class="w">      </span>S<span class="w"> </span>-<span class="w"> </span>Layer2
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span>U<span class="w"> </span>-<span class="w"> </span><span class="k">in</span><span class="w"> </span>use<span class="w">      </span>f<span class="w"> </span>-<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>allocate<span class="w"> </span>aggregator
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span>u<span class="w"> </span>-<span class="w"> </span>unsuitable<span class="w"> </span><span class="k">for</span><span class="w"> </span>bundling
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span>w<span class="w"> </span>-<span class="w"> </span>waiting<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>aggregated
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">        </span>d<span class="w"> </span>-<span class="w"> </span>default<span class="w"> </span>port
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>Number<span class="w"> </span>of<span class="w"> </span>channel-groups<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a>Number<span class="w"> </span>of<span class="w"> </span>aggregators:<span class="w">           </span><span class="m">1</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>Group<span class="w">  </span>Port-channel<span class="w">  </span>Protocol<span class="w">    </span>Ports
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>------+-------------+-----------+----------------------------------------------
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="m">1</span><span class="w">      </span>Po1<span class="o">(</span>SU<span class="o">)</span><span class="w">           </span>LACP<span class="w">   </span>Gig1/0/3<span class="o">(</span>P<span class="o">)</span><span class="w"> </span>Gig1/0/4<span class="o">(</span>P<span class="o">)</span><span class="w"> </span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a>DSW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+<p>We can also check the trunk interfaces</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>DSW1#show<span class="w"> </span>int<span class="w"> </span>trunk
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>Port<span class="w">        </span>Mode<span class="w">         </span>Encapsulation<span class="w">  </span>Status<span class="w">        </span>Native<span class="w"> </span>vlan
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>Po1<span class="w">         </span>on<span class="w">           </span><span class="m">802</span>.1q<span class="w">         </span>trunking<span class="w">      </span><span class="m">1</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>Port<span class="w">        </span>Vlans<span class="w"> </span>allowed<span class="w"> </span>on<span class="w"> </span>trunk
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>Po1<span class="w">         </span><span class="m">1</span>-1005
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>Port<span class="w">        </span>Vlans<span class="w"> </span>allowed<span class="w"> </span>and<span class="w"> </span>active<span class="w"> </span><span class="k">in</span><span class="w"> </span>management<span class="w"> </span>domain
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>Po1<span class="w">         </span><span class="m">1</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>Port<span class="w">        </span>Vlans<span class="w"> </span><span class="k">in</span><span class="w"> </span>spanning<span class="w"> </span>tree<span class="w"> </span>forwarding<span class="w"> </span>state<span class="w"> </span>and<span class="w"> </span>not<span class="w"> </span>pruned
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>Po1<span class="w">         </span><span class="m">1</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>DSW1#
+</code></pre></div>
+</details>
+</div>
+</div>
+</input></input></div>
+</details>
+<details>
+<summary>2. Configure Layer 2 EtherChannel between ASW2 and DSW2 using PAgP. Configure it as a trunk.</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">ASW2</label><label for="__tabbed_2_2">DSW2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>ASW2&gt;en
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>ASW2#conf<span class="w"> </span>t
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>ASW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range g0/1-2</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>ASW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#channel-group 1 mode desirable </span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>ASW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>Creating<span class="w"> </span>a<span class="w"> </span>port-channel<span class="w"> </span>interface<span class="w"> </span>Port-channel<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet0/1,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>down
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet0/1,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet0/2,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>down
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet0/2,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>
+<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a>ASW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int po1</span>
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>ASW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport mode trunk</span>
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a>ASW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>DSW2&gt;en
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>DSW2#conf<span class="w"> </span>t
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>DSW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range g1/0/3-4</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>DSW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#channel-group 1 mode desirable</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>DSW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>Creating<span class="w"> </span>a<span class="w"> </span>port-channel<span class="w"> </span>interface<span class="w"> </span>Port-channel<span class="w"> </span><span class="m">1</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet1/0/3,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>down
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet1/0/3,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet1/0/4,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>down
+<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>GigabitEthernet1/0/4,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a>
+<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a>%LINK-5-CHANGED:<span class="w"> </span>Interface<span class="w"> </span>Port-channel1,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a>
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a>%LINEPROTO-5-UPDOWN:<span class="w"> </span>Line<span class="w"> </span>protocol<span class="w"> </span>on<span class="w"> </span>Interface<span class="w"> </span>Port-channel1,<span class="w"> </span>changed<span class="w"> </span>state<span class="w"> </span>to<span class="w"> </span>up
+<a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a>
+<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a>DSW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int po1</span>
+<a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a>DSW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#switchport mode trunk</span>
+<a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a>DSW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</details>
+<details>
+<summary>3. Configure Layer 3 EtherChannel between DSW1 and DSW2 using static EtherChannel.</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">DSW1</label><label for="__tabbed_3_2">DSW2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>DSW1&gt;en
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>DSW1#conf<span class="w"> </span>t
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range g1/0/1-2</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>DSW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#no switch</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>DSW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#channel-group 2 mode on</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>DSW1<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int po2</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>DSW1<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#ip add 10.0.0.1 255.255.255.252</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>DSW2&gt;en
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>DSW2#conf<span class="w"> </span>t
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>DSW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#int range g1/0/1-2</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>DSW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#no switch</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>DSW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#channel-group 2 mode on</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>DSW2<span class="o">(</span>config-if-range<span class="o">)</span><span class="c1">#int po2</span>
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>DSW2<span class="o">(</span>config-if<span class="o">)</span><span class="c1">#ip add 10.0.0.2 255.255.255.252</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</details>
+<details>
+<summary>4. Configure routes to allow the PCs to reach SRV1.</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">DSW1</label><label for="__tabbed_4_2">DSW2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>DSW1#conf<span class="w"> </span>t
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#ip routing</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#ip route 172.16.2.0 255.255.255.0 10.0.0.2</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+<details class="abstract">
+<summary>Confirm</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#do show ip route</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>Codes:<span class="w"> </span>C<span class="w"> </span>-<span class="w"> </span>connected,<span class="w"> </span>S<span class="w"> </span>-<span class="w"> </span>static,<span class="w"> </span>I<span class="w"> </span>-<span class="w"> </span>IGRP,<span class="w"> </span>R<span class="w"> </span>-<span class="w"> </span>RIP,<span class="w"> </span>M<span class="w"> </span>-<span class="w"> </span>mobile,<span class="w"> </span>B<span class="w"> </span>-<span class="w"> </span>BGP
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span>D<span class="w"> </span>-<span class="w"> </span>EIGRP,<span class="w"> </span>EX<span class="w"> </span>-<span class="w"> </span>EIGRP<span class="w"> </span>external,<span class="w"> </span>O<span class="w"> </span>-<span class="w"> </span>OSPF,<span class="w"> </span>IA<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>inter<span class="w"> </span>area
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span>N1<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>NSSA<span class="w"> </span>external<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="m">1</span>,<span class="w"> </span>N2<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>NSSA<span class="w"> </span>external<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="m">2</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span>E1<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>external<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="m">1</span>,<span class="w"> </span>E2<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>external<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="m">2</span>,<span class="w"> </span>E<span class="w"> </span>-<span class="w"> </span>EGP
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span>i<span class="w"> </span>-<span class="w"> </span>IS-IS,<span class="w"> </span>L1<span class="w"> </span>-<span class="w"> </span>IS-IS<span class="w"> </span>level-1,<span class="w"> </span>L2<span class="w"> </span>-<span class="w"> </span>IS-IS<span class="w"> </span>level-2,<span class="w"> </span>ia<span class="w"> </span>-<span class="w"> </span>IS-IS<span class="w"> </span>inter<span class="w"> </span>area
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span>*<span class="w"> </span>-<span class="w"> </span>candidate<span class="w"> </span>default,<span class="w"> </span>U<span class="w"> </span>-<span class="w"> </span>per-user<span class="w"> </span>static<span class="w"> </span>route,<span class="w"> </span>o<span class="w"> </span>-<span class="w"> </span>ODR
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span>P<span class="w"> </span>-<span class="w"> </span>periodic<span class="w"> </span>downloaded<span class="w"> </span>static<span class="w"> </span>route
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a>
+<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a>Gateway<span class="w"> </span>of<span class="w"> </span>last<span class="w"> </span>resort<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span><span class="nb">set</span>
+<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a>
+<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">    </span><span class="m">10</span>.0.0.0/30<span class="w"> </span>is<span class="w"> </span>subnetted,<span class="w"> </span><span class="m">1</span><span class="w"> </span>subnets
+<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a>C<span class="w">       </span><span class="m">10</span>.0.0.0<span class="w"> </span>is<span class="w"> </span>directly<span class="w"> </span>connected,<span class="w"> </span>Port-channel2
+<a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="m">172</span>.16.0.0/24<span class="w"> </span>is<span class="w"> </span>subnetted,<span class="w"> </span><span class="m">2</span><span class="w"> </span>subnets
+<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a>C<span class="w">       </span><span class="m">172</span>.16.1.0<span class="w"> </span>is<span class="w"> </span>directly<span class="w"> </span>connected,<span class="w"> </span>Vlan1
+<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a>S<span class="w">       </span><span class="m">172</span>.16.2.0<span class="w"> </span><span class="o">[</span><span class="m">1</span>/0<span class="o">]</span><span class="w"> </span>via<span class="w"> </span><span class="m">10</span>.0.0.2
+<a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a>
+<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>DSW2&gt;en
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>DSW2#conf<span class="w"> </span>t
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>DSW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#ip routing</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>DSW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#ip route 172.16.1.0 255.255.255.0 10.0.0.1</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>DSW2<span class="o">(</span>config<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+<details class="abstract">
+<summary>Confirm</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>DSW2#show<span class="w"> </span>ip<span class="w"> </span>route
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>Codes:<span class="w"> </span>C<span class="w"> </span>-<span class="w"> </span>connected,<span class="w"> </span>S<span class="w"> </span>-<span class="w"> </span>static,<span class="w"> </span>I<span class="w"> </span>-<span class="w"> </span>IGRP,<span class="w"> </span>R<span class="w"> </span>-<span class="w"> </span>RIP,<span class="w"> </span>M<span class="w"> </span>-<span class="w"> </span>mobile,<span class="w"> </span>B<span class="w"> </span>-<span class="w"> </span>BGP
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span>D<span class="w"> </span>-<span class="w"> </span>EIGRP,<span class="w"> </span>EX<span class="w"> </span>-<span class="w"> </span>EIGRP<span class="w"> </span>external,<span class="w"> </span>O<span class="w"> </span>-<span class="w"> </span>OSPF,<span class="w"> </span>IA<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>inter<span class="w"> </span>area
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span>N1<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>NSSA<span class="w"> </span>external<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="m">1</span>,<span class="w"> </span>N2<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>NSSA<span class="w"> </span>external<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="m">2</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span>E1<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>external<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="m">1</span>,<span class="w"> </span>E2<span class="w"> </span>-<span class="w"> </span>OSPF<span class="w"> </span>external<span class="w"> </span><span class="nb">type</span><span class="w"> </span><span class="m">2</span>,<span class="w"> </span>E<span class="w"> </span>-<span class="w"> </span>EGP
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span>i<span class="w"> </span>-<span class="w"> </span>IS-IS,<span class="w"> </span>L1<span class="w"> </span>-<span class="w"> </span>IS-IS<span class="w"> </span>level-1,<span class="w"> </span>L2<span class="w"> </span>-<span class="w"> </span>IS-IS<span class="w"> </span>level-2,<span class="w"> </span>ia<span class="w"> </span>-<span class="w"> </span>IS-IS<span class="w"> </span>inter<span class="w"> </span>area
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span>*<span class="w"> </span>-<span class="w"> </span>candidate<span class="w"> </span>default,<span class="w"> </span>U<span class="w"> </span>-<span class="w"> </span>per-user<span class="w"> </span>static<span class="w"> </span>route,<span class="w"> </span>o<span class="w"> </span>-<span class="w"> </span>ODR
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span>P<span class="w"> </span>-<span class="w"> </span>periodic<span class="w"> </span>downloaded<span class="w"> </span>static<span class="w"> </span>route
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a>Gateway<span class="w"> </span>of<span class="w"> </span>last<span class="w"> </span>resort<span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span><span class="nb">set</span>
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a>
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">    </span><span class="m">10</span>.0.0.0/30<span class="w"> </span>is<span class="w"> </span>subnetted,<span class="w"> </span><span class="m">1</span><span class="w"> </span>subnets
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a>C<span class="w">       </span><span class="m">10</span>.0.0.0<span class="w"> </span>is<span class="w"> </span>directly<span class="w"> </span>connected,<span class="w"> </span>Port-channel2
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="w">    </span><span class="m">172</span>.16.0.0/24<span class="w"> </span>is<span class="w"> </span>subnetted,<span class="w"> </span><span class="m">2</span><span class="w"> </span>subnets
+<a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a>S<span class="w">       </span><span class="m">172</span>.16.1.0<span class="w"> </span><span class="o">[</span><span class="m">1</span>/0<span class="o">]</span><span class="w"> </span>via<span class="w"> </span><span class="m">10</span>.0.0.1
+<a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a>C<span class="w">       </span><span class="m">172</span>.16.2.0<span class="w"> </span>is<span class="w"> </span>directly<span class="w"> </span>connected,<span class="w"> </span>Vlan1
+<a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a>
+<a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a>DSW2#
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>5. What is the default EtherChannel load-balancing method used on each switch?</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>DSW1#show<span class="w"> </span>etherchannel<span class="w"> </span>load-balance<span class="w"> </span>
+</code></pre></div>
+</details>
+<details>
+<summary>6. Configure the switches to load-balance based on source and destination IP addresses.</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>DSW1#conf<span class="w"> </span>t
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>Enter<span class="w"> </span>configuration<span class="w"> </span>commands,<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line.<span class="w">  </span>End<span class="w"> </span>with<span class="w"> </span>CNTL/Z.
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#port-channel load-balance ?</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a>dst-ip<span class="w">       </span>Dst<span class="w"> </span>IP<span class="w"> </span>Addr
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a>dst-mac<span class="w">      </span>Dst<span class="w"> </span>Mac<span class="w"> </span>Addr
+<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a>src-dst-ip<span class="w">   </span>Src<span class="w"> </span>XOR<span class="w"> </span>Dst<span class="w"> </span>IP<span class="w"> </span>Addr
+<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a>src-dst-mac<span class="w">  </span>Src<span class="w"> </span>XOR<span class="w"> </span>Dst<span class="w"> </span>Mac<span class="w"> </span>Addr
+<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a>src-ip<span class="w">       </span>Src<span class="w"> </span>IP<span class="w"> </span>Addr
+<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a>src-mac<span class="w">      </span>Src<span class="w"> </span>Mac<span class="w"> </span>Addr
+<a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a>
+<a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#port-channel load-balance src-dst-ip</span>
+<a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a>DSW1<span class="o">(</span>config<span class="o">)</span><span class="c1">#</span>
+</code></pre></div>
+</details>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>spanning-tree portfast</code></li>
+<li><code>spanning-tree link-type point-to-point</code></li>
+</ul>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.tabs", "content.code.annotate", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

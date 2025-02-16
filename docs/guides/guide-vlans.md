@@ -21,7 +21,7 @@
     Note: We did not have to do anything with VLAN 1 because all interfaces are assigned to VLAN 1 by default.
 
     <figure markdown>
-        ![Day 44 Topology](/PT_screenshots/vlan_a.PNG){ width="800" }
+        ![Day 44 Topology](images/vlan_a.PNG){ width="800" }
         <figcaption></figcaption>
     </figure>
 

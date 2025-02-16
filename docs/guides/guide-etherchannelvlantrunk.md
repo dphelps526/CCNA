@@ -14,7 +14,7 @@
     Honestly, this is pretty much the same thing as the EtherChannel guide. An EtherChannel will most likely always be a trunk.
 
     <figure markdown>
-        ![Day 44 Topology](/PT_screenshots/etherchannelvlantrunk_a.PNG){ width="800" }
+        ![Day 44 Topology](images/etherchannelvlantrunk_a.PNG){ width="800" }
         <figcaption></figcaption>
     </figure>
 

@@ -9,7 +9,7 @@
 ### Topology
 
 <figure markdown>
-  ![Day 38 Topology](/PT_screenshots/day38.PNG){ width="800" }
+  ![Day 38 Topology](images/day38.PNG){ width="800" }
   <figcaption></figcaption>
 </figure>
 

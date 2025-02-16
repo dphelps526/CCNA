@@ -6,7 +6,7 @@
 * `show etherchannel summary`
 
     <figure markdown>
-        ![Day 44 Topology](/PT_screenshots/etherchannel_b.PNG){ width="800" }
+        ![Day 44 Topology](images/etherchannel_b.PNG){ width="800" }
         <figcaption></figcaption>
     </figure>
 

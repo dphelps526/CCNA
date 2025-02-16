@@ -14,7 +14,7 @@ When you use a destination interface on the same switch as your switch we call i
 
 
     <figure markdown>
-        ![SPAN](/PT_screenshots/SPAN.PNG){ width="800" }
+        ![SPAN](images/SPAN.PNG){ width="800" }
         <figcaption></figcaption>
     </figure>
 

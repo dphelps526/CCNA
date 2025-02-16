@@ -12,7 +12,7 @@
     * `switchport mode trunk` - or "dynamic desirable" or "dynamic auto"
 
     <figure markdown>
-        ![Day 44 Topology](/PT_screenshots/trunking_b.PNG){ width="800" }
+        ![Day 44 Topology](images/trunking_b.PNG){ width="800" }
         <figcaption></figcaption>
     </figure>
 
@@ -24,7 +24,7 @@
 ??? Note "VLAN Trunking Configuration"
 
     <figure markdown>
-        ![Day 44 Topology](/PT_screenshots/trunking_a.PNG){ width="800" }
+        ![Day 44 Topology](images/trunking_a.PNG){ width="800" }
         <figcaption></figcaption>
     </figure>
 

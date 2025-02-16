@@ -24,7 +24,7 @@
     This configuration uses simple shared passwords and no username. This will allow users to access the switch in either console mode or telnet.
 
     <figure markdown>
-        ![Day 44 Topology](/PT_screenshots/sec_a.PNG){ width="800" }
+        ![Day 44 Topology](images/sec_a.PNG){ width="800" }
         <figcaption></figcaption>
     </figure>
 

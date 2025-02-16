@@ -13,7 +13,7 @@ RSPAN sessions capture traffic similarly to local SPAN sessions. However, more t
 * `show monitor session remote`
 
     <figure markdown>
-        ![RSPAN](/PT_screenshots/RSPAN.PNG){ width="800" }
+        ![RSPAN](images/RSPAN.PNG){ width="800" }
         <figcaption></figcaption>
     </figure>
 

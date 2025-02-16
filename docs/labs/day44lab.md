@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 44 Lab - Static NAT](/JITL/Day%2044%20Lab%20-%20Static%20NAT.pkt){:download="Day 44 Lab - Static NAT}
+[Download Day 44 Lab - Static NAT](../assets/packet-tracer-files/Day%2044%20Lab%20-%20Static%20NAT.pkt){:download="Day 44 Lab - Static NAT.pkt"}
 
 ### Topology
 

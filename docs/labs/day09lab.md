@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 09 Lab - Interface Configuration](/JITL/Day%2009%20Lab%20-%20Interface%20Configuration.pkt){:download="Day 09 Lab - Interface Configuration"}
+[Download Day 09 Lab - Interface Configuration](../assets/packet-tracer-files/Day%2009%20Lab%20-%20Interface%20Configuration.pkt){:download="Day 09 Lab - Interface Configuration.pkt"}
 
 ### Topology
 

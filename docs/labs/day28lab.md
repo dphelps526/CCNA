@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 28 Lab - OSPF (Part 3)](/JITL/Day%2028%20Lab%20-%20OSPF%20(Part%203).pkt){:download="Day 28 Lab - OSPF (Part 3)}
+[Download Day 28 Lab - OSPF (Part 3)](../assets/packet-tracer-files/Day%2028%20Lab%20-%20OSPF%20(Part%203).pkt){:download="Day 28 Lab - OSPF (Part 3).pkt"}
 
 ### Topology
 

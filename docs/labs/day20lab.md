@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 20 Lab - Analyzing STP](/JITL/Day%2020%20Lab%20-%20Analyzing%20STP.pkt){:download="Day 20 Lab - Analyzing STP"}
+[Download Day 20 Lab - Analyzing STP](../assets/packet-tracer-files/Day%2020%20Lab%20-%20Analyzing%20STP.pkt){:download="Day 20 Lab - Analyzing STP.pkt"}
 
 ### Topology
 

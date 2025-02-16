@@ -4,8 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 08 Lab - IPv4 Addresses](/JITL/Day%2008%20Lab%20-%20IPv4%20Addresses.pkt){:download="Day 08 Lab - IPv4 Addresses.pkt"}
-
+[Download Day 08 Lab - IPv4 Addresses](../assets/packet-tracer-files/Day%2008%20Lab%20-%20IPv4%20Addresses.pkt){:download="Day 08 Lab - IPv4 Addresses.pkt"}
 ### Topology
 
 <figure markdown>

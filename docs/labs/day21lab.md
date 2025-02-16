@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 21 Lab - Configuring Spanning Tree](/JITL/Day%2021%20Lab%20-%20Configuring%20Spanning%20Tree.pkt){:download="Day 21 Lab - Configuring Spanning Tree"}
+[Download Day 21 Lab - Configuring Spanning Tree](../assets/packet-tracer-files/Day%2021%20Lab%20-%20Configuring%20Spanning%20Tree.pkt){:download="Day 21 Lab - Configuring Spanning Tree.pkt"}
 
 ### Topology
 

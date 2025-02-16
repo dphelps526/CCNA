@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 46 Lab - Voice VLANs](/docs/JITL/Day%2046%20Lab%20-%20Voice%20VLANs.pkt){:download="Day 46 Lab - Voice VLANs}
+[Download Day 46 Lab - Voice VLANs](/docs../assets/packet-tracer-files/Day%2046%20Lab%20-%20Voice%20VLANs.pkt){:download="Day 46 Lab - Voice VLANs.pkt"}
 
 ### Topology
 

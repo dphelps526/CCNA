@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 22 Lab - Configuring Spanning Tree](/JITL/Day%2022%20Lab%20-%20Rapid%20STP.pkt){:download="Day 22 Lab - Rapid STP"}
+[Download Day 22 Lab - Configuring Spanning Tree](../assets/packet-tracer-files/Day%2022%20Lab%20-%20Rapid%20STP.pkt){:download="Day 22 Lab - Rapid STP.pkt"}
 
 ### Topology
 

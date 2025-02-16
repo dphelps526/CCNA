@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 47 Lab - QoS](/docs/JITL/Day%2047%20Lab%20-%20QoS.pkt){:download="Day 47 Lab - QoS}
+[Download Day 47 Lab - QoS](/docs../assets/packet-tracer-files/Day%2047%20Lab%20-%20QoS.pkt){:download="Day 47 Lab - QoS.pkt"}
 
 ### Topology
 

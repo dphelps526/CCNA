@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 11 Lab - Configuring Static Routes](/JITL/Day%2011%20Lab%20-%20Configuring%20Static%20Routes.pkt){:download="Day 11 Lab - Configuring Static Routes"}
+[Download Day 11 Lab - Configuring Static Routes](../assets/packet-tracer-files/Day%2011%20Lab%20-%20Troubleshooting%20Static%20Routes.pkt){:download="Day 11 Lab - Configuring Static Routes.pkt"}
 
 ### Topology
 

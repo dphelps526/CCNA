@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 36 Lab - CDP and LLDP](/JITL/Day%2036%20Lab%20-%20CDP%20_%20LLDP.pkt){:download="Day 36 Lab - CDP and LLDP}
+[Download Day 36 Lab - CDP and LLDP](../assets/packet-tracer-files/Day%2036%20Lab%20-%20CDP%20_%20LLDP.pkt){:download="Day 36 Lab - CDP and LLDP.pkt"}
 
 ### Topology
 

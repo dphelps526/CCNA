@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 51 Lab - Dynamic ARP Inspection](/JITL/Day%2051%20Lab%20-%20Dynamic%20ARP%20Inspection.pkt){:download="Day 51 Lab - Dynamic ARP Inspection}
+[Download Day 51 Lab - Dynamic ARP Inspection](../assets/packet-tracer-files/Day%2051%20Lab%20-%20Dynamic%20ARP%20Inspection.pkt){:download="Day 51 Lab - Dynamic ARP Inspection.pkt"}
 
 ### Topology
 

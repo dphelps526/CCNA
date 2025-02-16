@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 43 Lab - FTP and TFTP](/JITL/Day%2043%20Lab%20-%20FTP%20_%20TFTP.pkt){:download="Day 43 Lab - FTP and TFTP}
+[Download Day 43 Lab - FTP and TFTP](../assets/packet-tracer-files/Day%2043%20Lab%20-%20FTP%20_%20TFTP.pkt){:download="Day 43 Lab - FTP and TFTP.pkt"}
 
 ### Topology
 

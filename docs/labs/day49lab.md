@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 49 Lab - Port Security](/JITL/Day%2049%20Lab%20-%20Port%20Security.pkt){:download="Day 49 Lab - Port Security}
+[Download Day 49 Lab - Port Security](../assets/packet-tracer-files/Day%2049%20Lab%20-%20Port%20Security.pkt){:download="Day 49 Lab - Port Security.pkt"}
 
 ### Topology
 

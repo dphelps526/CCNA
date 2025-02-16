@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 39 Lab - DHCP](/JITL/Day%2039%20Lab%20-%20DHCP.pkt){:download="Day 39 Lab - DHCP}
+[Download Day 39 Lab - DHCP](../assets/packet-tracer-files/Day%2039%20Lab%20-%20DHCP.pkt){:download="Day 39 Lab - DHCP.pkt"}
 
 ### Topology
 

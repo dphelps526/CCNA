@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 40 Lab - SNMP](/JITL/Day%2040%20Lab%20-%20SNMP.pkt){:download="Day 40 Lab - SNMP}
+[Download Day 40 Lab - SNMP](../assets/packet-tracer-files/Day%2040%20Lab%20-%20SNMP.pkt){:download="Day 40 Lab - SNMP.pkt"}
 
 ### Topology
 

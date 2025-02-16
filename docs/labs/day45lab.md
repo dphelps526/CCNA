@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 45 Lab - Dyanmic NAT](/docs/JITL/Day%2045%20Lab%20-%20Dynamic%20NAT.pkt){:download="Day 45 Lab - Dyanmic NAT}
+[Download Day 45 Lab - Dyanmic NAT](/docs../assets/packet-tracer-files/Day%2045%20Lab%20-%20Dynamic%20NAT.pkt){:download="Day 45 Lab - Dyanmic NAT.pkt"}
 
 ### Topology
 

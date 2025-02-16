@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 24 Lab - Floating Static Routes](/JITL/Day%2024%20Lab%20-%20Floating%20Static%20Routes.pkt){:download="Day 24 Lab - Floating Static Routes}
+[Download Day 24 Lab - Floating Static Routes](../assets/packet-tracer-files/Day%2024%20Lab%20-%20Floating%20Static%20Routes.pkt){:download="Day 24 Lab - Floating Static Routes.pkt"}
 
 ### Topology
 

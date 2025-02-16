@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 35 Lab - Extended ACLs](/JITL/Day%2035%20Lab%20-%20Extended%20ACLs.pkt){:download="Day 35 Lab - Extended ACLs}
+[Download Day 35 Lab - Extended ACLs](../assets/packet-tracer-files/Day%2035%20Lab%20-%20Extended%20ACLs.pkt){:download="Day 35 Lab - Extended ACLs.pkt"}
 
 ### Topology
 

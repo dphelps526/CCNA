@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 29 Lab - HSRP Configuration](/jitl/Day%2029%20Lab%20-%20HSRP%20Configuration.pkt){:download="Day 24 Lab - HSRP Configuration}
+[Download Day 29 Lab - HSRP Configuration](../assets/packet-tracer-files/Day%2029%20Lab%20-%20HSRP%20Configuration.pkt){:download="Day 24 Lab - HSRP Configuration.pkt"}
 
 ### Topology
 

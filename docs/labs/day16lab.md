@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 16 Lab - VLANS (Part 1)](/JITL/Day%2016%20Lab%20-%20VLANs%20(Part%201).pkt){:download="Day 16 Lab - VLANS (Part 1)"}
+[Download Day 16 Lab - VLANS (Part 1)](../assets/packet-tracer-files/Day%2016%20Lab%20-%20VLANs%20(Part%201).pkt){:download="Day 16 Lab - VLANS (Part 1).pkt"}
 
 ### Topology
 

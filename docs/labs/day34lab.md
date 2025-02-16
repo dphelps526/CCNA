@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 34 Lab - Standard ACLs](/JITL/Day%2034%20Lab%20-%20Standard%20ACLs.pkt){:download="Day 34 Lab - Standard ACLs}
+[Download Day 34 Lab - Standard ACLs](../assets/packet-tracer-files/Day%2034%20Lab%20-%20Standard%20ACLs.pkt){:download="Day 34 Lab - Standard ACLs.pkt"}
 
 ### Topology
 

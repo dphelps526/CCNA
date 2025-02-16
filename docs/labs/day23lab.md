@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 23 Lab - EtherChannel](/JITL/Day%2023%20Lab%20-%20EtherChannel.pkt){:download="Day 23 Lab - EtherChannel}
+[Download Day 23 Lab - EtherChannel](../assets/packet-tracer-files/Day%2023%20Lab%20-%20EtherChannel.pkt){:download="Day 23 Lab - EtherChannel.pkt"}
 
 ### Topology
 

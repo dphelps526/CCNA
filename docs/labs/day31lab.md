@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 31 Lab - IPv6 Configuration (Part 1)](/JITL/Day%2031%20Lab%20-%20IPv6%20Configuration%20(Part%201).pkt){:download="Day 31 Lab - IPv6 Configuration (Part 1)}
+[Download Day 31 Lab - IPv6 Configuration (Part 1)](../assets/packet-tracer-files/Day%2031%20Lab%20-%20IPv6%20Configuration%20(Part%201).pkt){:download="Day 31 Lab - IPv6 Configuration (Part 1).pkt"}
 
 ### Topology
 

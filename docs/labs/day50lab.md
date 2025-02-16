@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 50 Lab - DHCP Snoopping](/JITL/Day%2050%20Lab%20-%20DHCP%20Snooping.pkt){:download="Day 50 Lab - DHCP Snoopping}
+[Download Day 50 Lab - DHCP Snoopping](../assets/packet-tracer-files/Day%2050%20Lab%20-%20DHCP%20Snooping.pkt){:download="Day 50 Lab - DHCP Snoopping.pkt"}
 
 ### Topology
 

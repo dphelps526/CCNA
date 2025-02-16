@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 33 Lab - IPv6 Static Routes](/JITL/Day%2033%20Lab%20-%20IPv6%20Static%20Routes.pkt){:download="Day 33 Lab - IPv6 Static Routes}
+[Download Day 33 Lab - IPv6 Static Routes](../assets/packet-tracer-files/Day%2033%20Lab%20-%20IPv6%20Static%20Routes.pkt){:download="Day 33 Lab - IPv6 Static Routes.pkt"}
 
 ### Topology
 

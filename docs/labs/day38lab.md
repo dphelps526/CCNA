@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 38 Lab - DNS](/JITL/Day%2038%20Lab%20-%20DNS.pkt){:download="Day 38 Lab - DNS}
+[Download Day 38 Lab - DNS](../assets/packet-tracer-files/Day%2038%20Lab%20-%20DNS.pkt){:download="Day 38 Lab - DNS.pkt"}
 
 ### Topology
 

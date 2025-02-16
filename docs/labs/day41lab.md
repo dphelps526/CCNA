@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 41 Lab - Syslog](/JITL/Day%2041%20Lab%20-%20Syslog.pkt){:download="Day 41 Lab - Syslog}
+[Download Day 41 Lab - Syslog](../assets/packet-tracer-files/Day%2041%20Lab%20-%20Syslog.pkt){:download="Day 41 Lab - Syslog.pkt"}
 
 ### Topology
 

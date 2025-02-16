@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 18 Lab - VLANS (Part 3)](/JITL/Day%2018%20Lab%20-%20Multilayer%20Switching.pkt){:download="Day 18 Lab - VLANS (Part 3)"}
+[Download Day 18 Lab - VLANS (Part 3)](../assets/packet-tracer-files/Day%2018%20Lab%20-%20Multilayer%20Switching.pkt){:download="Day 18 Lab - VLANS (Part 3).pkt"}
 
 ### Topology
 

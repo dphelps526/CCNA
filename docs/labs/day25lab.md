@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 25 Lab - EIGRP Configuration](/JITL/Day%2025%20Lab%20-%20EIGRP%20Configuration.pkt){:download="Day 25 Lab - EIGRP Configuration}
+[Download Day 25 Lab - EIGRP Configuration](../assets/packet-tracer-files/Day%2025%20Lab%20-%20EIGRP%20Configuration.pkt){:download="Day 25 Lab - EIGRP Configuration.pkt"}
 
 ### Topology
 

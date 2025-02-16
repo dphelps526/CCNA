@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 42 Lab - SSH](/JITL/Day%2042%20Lab%20-%20SSH.pkt){:download="Day 42 Lab - SSH}
+[Download Day 42 Lab - SSH](../assets/packet-tracer-files/Day%2042%20Lab%20-%20SSH.pkt){:download="Day 42 Lab - SSH.pkt"}
 
 ### Topology
 

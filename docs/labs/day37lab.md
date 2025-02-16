@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 37 Lab - NTP](/JITL/Day%2037%20Lab%20-%20NTP.pkt){:download="Day 37 Lab - NTP}
+[Download Day 37 Lab - NTP](../assets/packet-tracer-files/Day%2037%20Lab%20-%20NTP.pkt){:download="Day 37 Lab - NTP.pkt"}
 
 ### Topology
 

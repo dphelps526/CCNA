@@ -29,8 +29,7 @@ plugins:
 
 nav:
   - Home:
-    - Quick Reference: quickref.md
-    - Commands: commands.md
+    - Quick Reference: index.md
   - Labs:
     - Day 06 Lab - Ethernet LAN Switching: labs/day06lab.md
     - Day 08 Lab - IPv4 Addresses: labs/day08lab.md

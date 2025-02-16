@@ -1,19 +1,25 @@
-# Welcome to MkDocs
+# CCNA Study Site
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Git Commands
 
-## Commands
+Initialize Git
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* `git init`
+* `git add .`
+* `git commit -m "comment"`
 
-## Project layout
+## Push Code
+* `git remote add origin https://github.com/dphelps526/CCNA`
+* `git branch -M main`
+* `git push -u origin main`
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Clone Repo
+* `git clone https://github.com/dphelps526/CCNA`
 
+## Save and Push Changes
+* `git add .`
+* `git commit -m "Updated comment"`
+* `git push origin main`
 
+## Pull Latest Changes
+git pull origin main`

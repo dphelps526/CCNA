@@ -4,7 +4,7 @@
 
 ### Packet Tracer
 
-[Download Day 58 Lab - Wireless LANs](/JITL/Day%2058%20Lab%20-%20Wireless%20LANs.pkt){:download="Day 58 Lab - Wireless LANs}
+[Download Day 58 Lab - Wireless LANs](../assets/packet-tracer-files/Day%2058%20Lab%20-%20Wireless%20LANs.pkt){:download="Day 58 Lab - Wireless LANs.pkt"}
 
 ### Topology
 

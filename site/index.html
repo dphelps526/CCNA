@@ -5,9 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="labs/day06lab.html" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.4" name="generator"/>
-<title>CCNA</title>
+<title>Quick Reference - CCNA</title>
 <link href="assets/stylesheets/main.9c788c91.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -31,7 +32,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#welcome-to-mkdocs">
+<a class="md-skip" href="#ccna-study-site">
           Skip to content
         </a>
 </div>
@@ -55,7 +56,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Welcome to MkDocs
+              Quick Reference
             
           </span>
 </div>
@@ -68,7 +69,7 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="quickref.html">
+<a class="md-tabs__link md-tabs__link--active" href="index.html">
         Home
       </a>
 </li>
@@ -98,9 +99,9 @@
     CCNA
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_1" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_1" tabindex="0">
           Home
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -110,15 +111,48 @@
           Home
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="quickref.html">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Quick Reference
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="index.html">
         Quick Reference
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#git-commands">
+    Git Commands
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="commands.html">
-        Commands
-      </a>
+<a class="md-nav__link" href="#push-code">
+    Push Code
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clone-repo">
+    Clone Repo
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#save-and-push-changes">
+    Save and Push Changes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pull-latest-changes">
+    Pull Latest Changes
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -413,13 +447,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#commands">
-    Commands
+<a class="md-nav__link" href="#git-commands">
+    Git Commands
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#project-layout">
-    Project layout
+<a class="md-nav__link" href="#push-code">
+    Push Code
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clone-repo">
+    Clone Repo
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#save-and-push-changes">
+    Save and Push Changes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pull-latest-changes">
+    Pull Latest Changes
   </a>
 </li>
 </ul>
@@ -429,21 +478,32 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="ccna-study-site">CCNA Study Site</h1>
+<h2 id="git-commands">Git Commands</h2>
+<p>Initialize Git</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><code>git init</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m "comment"</code></li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<div class="highlight"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<h2 id="push-code">Push Code</h2>
+<ul>
+<li><code>git remote add origin https://github.com/dphelps526/CCNA</code></li>
+<li><code>git branch -M main</code></li>
+<li><code>git push -u origin main</code></li>
+</ul>
+<h2 id="clone-repo">Clone Repo</h2>
+<ul>
+<li><code>git clone https://github.com/dphelps526/CCNA</code></li>
+</ul>
+<h2 id="save-and-push-changes">Save and Push Changes</h2>
+<ul>
+<li><code>git add .</code></li>
+<li><code>git commit -m "Updated comment"</code></li>
+<li><code>git push origin main</code></li>
+</ul>
+<h2 id="pull-latest-changes">Pull Latest Changes</h2>
+<p>git pull origin main`</p>
 </article>
 </div>
 </div>
